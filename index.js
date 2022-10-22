@@ -43,11 +43,11 @@ else if (userGuess === randomValue && point === 1)
 else { 
   for (attempts = 4; attempts > 0; attempts--)
     {
-        console.log(`Your guess was wrong! ${attempts} left.`);
+        console.log(`Your guess was wrong! ${attempts} attempts left.`);
         randomValue = Math.floor(Math.random() * (max - min + 1)) + min
         userGuess = parseInt(prompt(`Guess a number between ${min} and ${max}.`));
     }
-      console.log (`Game Over!!`);
+      console.log (`Game Over!! Try again.`);
       break;
     }
   } while (max < 11)
