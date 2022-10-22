@@ -2,7 +2,7 @@ guessGame(1, 2);
 
 
 function guessGame(min, max) {
-  let about_game = `GuessIt is a Multi-level number guessing game. You are required to guess a randomly generated number. At a correct guess, you are awarded a point and moved to next level by increasing the maximum range value by 1.`
+  let about_game = `GuessIt is a Multi-level number guessing game. You are required to guess a randomly generated number. At a correct guess, you are awarded a point and moved to next level.`
 
   let line_break = `-------------------------------------------------------`
     
