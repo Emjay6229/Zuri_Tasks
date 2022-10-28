@@ -1,6 +1,6 @@
-var http = require("http");
+var http = require('http';
 var fs = require('fs');
-var path = require("path");
+var path = require('path');
 
 let port = 3000;
 
