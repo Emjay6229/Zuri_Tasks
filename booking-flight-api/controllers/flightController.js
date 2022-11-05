@@ -10,7 +10,8 @@ exports.createFlight = async (req, res) => {
             flight.push(newFlight);
 
             res.status(200).json({
-                message: "flight booked"
+                message: "flight booked",
+                flightID: newFlight.id
             });
 
         } catch (err) {
@@ -56,7 +57,8 @@ exports.updateFlight = async (req, res) => {
             flight.splice(flight.indexOf(flightUpdate), 1, bodyUpdate);
 
 
-            res.status(200).json({ message: "Flight data updated" });
+            res.status(200).json(
+                { message: "Flight data updated", newID: bodyUpdate.id});
 
     } catch (err) {
 
