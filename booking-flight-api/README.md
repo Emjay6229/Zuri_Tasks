@@ -1,0 +1,1 @@
+This is the week 6 task for the Zuri internnship. It is a simple REST API for a CRUD Flight booking application.
