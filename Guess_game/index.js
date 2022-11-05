@@ -24,27 +24,40 @@ function guessGame(min, max) {
 
   do {
     randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
-    userGuess = parseInt(prompt(`Try to guess a number between ${min} and ${max}. You have ${attempts} attempts. `)); point++;
+    userGuess = parseInt(prompt(`Try to guess a number between ${min} and ${max}. You have ${attempts} attempts. `));
 
     if (userGuess === randomValue && point > 1) {
-      level++
-      console.log(`Your guess is correct! You have ${point} points!`);
+      level++;
+      console.log(`Your guess is correct! You have ${point++} points!`);
       console.log(`Welcome to level ${level}.`);
       max++;
+      point++;
     }
     else if (userGuess === randomValue && point === 1) {
       level++;
       console.log(`Your guess is correct! You have ${point} point!`);
       console.log(`Welcome to level ${level}.`);
       max++;
+      point++;
     }
     else {
       for (attempts = 4; attempts > 0; attempts--) {
-        console.log(`Your guess was wrong! ${attempts} attempts left.`);
-        randomValue = Math.floor(Math.random() * (max - min + 1)) + min
-        userGuess = parseInt(prompt(`Guess a number between ${min} and ${max}.`));
+        if (attempts > 1){
+          console.log(`Your guess was wrong! ${attempts} attempts left.`);
+          randomValue = Math.floor(Math.random() * (max - min + 1)) + min
+          userGuess = parseInt(prompt(`Guess a number between ${min} and ${max}.`));
+        } else {
+          console.log(`Your guess was wrong! ${attempts} attempt left.`);
+          randomValue = Math.floor(Math.random() * (max - min + 1)) + min
+          userGuess = parseInt(prompt(`Guess a number between ${min} and ${max}.`));
+        }
       }
-      console.log(`Game Over!! Try again.`);
+      if (point > 1){
+        console.log(`Game Over!! You have ${point} points.`);
+      } else {
+        console.log(`Game Over!! You have ${point} point.`);
+      }
+      console.log(`Try again.`);
       break;
     }
   } while (max < 11)
