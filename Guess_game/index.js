@@ -52,7 +52,7 @@ function guessGame(min, max) {
           userGuess = parseInt(prompt(`Guess a number between ${min} and ${max}.`));
         }
       }
-      if (point > 1){
+      if (point > 1 || point === 0){
         console.log(`Game Over!! You have ${point} points.`);
       } else {
         console.log(`Game Over!! You have ${point} point.`);
