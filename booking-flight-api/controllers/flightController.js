@@ -36,8 +36,6 @@ exports.singleFlight = async (req, res) => {
         } catch (err) {
             res.status(404).json({ message: err.message });
         }
-    } catch (err) {
-        res.status(404).json({ message: err.message });
     }
 
 // Update Flight
@@ -69,8 +67,4 @@ exports.deleteFlight = async (req, res) => {
         } catch (err) {
             res.status(404).json({ message: err.message });
         }
-    }    
-    } catch (err) {
-    res.status(404).json({ message: err.message });
     }
-}
