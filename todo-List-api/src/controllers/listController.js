@@ -83,11 +83,7 @@ exports.updateList = async(req, res) => {
 
 exports.removeItem = async(req, res) => {
         try {
-                // const id = { _id: req.params.id };
-
-                // listItems.findOneAndDelete(id);
-
-                const id = req.params.id;
+                const id = { _id: req.params.id };
 
                 listItems.findByIdAndDelete(id);
 
