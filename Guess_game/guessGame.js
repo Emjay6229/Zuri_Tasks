@@ -8,13 +8,13 @@ function guessGame(min, max) {
 
   let userName = (prompt(`Hi! Please enter your username. `));
 
-  console.log(line_break);
+  // alert(line_break);
 
-  console.log(`Hello ${userName}! Welcome to GuessIt Game!`);
+  alert(`Hello ${userName}! Welcome to GuessIt Game!`);
 
-  console.log(line_break);
-  console.log(about_game);
-  console.log(line_break);
+  // alert(line_break);
+  alert(about_game);
+  // alert(line_break);
 
   let randomValue;
   let userGuess;
@@ -28,36 +28,36 @@ function guessGame(min, max) {
 
     if (userGuess === randomValue && point > 1) {
       level++;
-      console.log(`Your guess is correct! You have ${point++} points!`);
-      console.log(`Welcome to level ${level}.`);
+      alert(`Your guess is correct! You have ${point++} points!`);
+      alert(`Welcome to level ${level}.`);
       max++;
       point++;
     }
     else if (userGuess === randomValue && point === 1) {
       level++;
-      console.log(`Your guess is correct! You have ${point} point!`);
-      console.log(`Welcome to level ${level}.`);
+      alert(`Your guess is correct! You have ${point} point!`);
+      alert(`Welcome to level ${level}.`);
       max++;
       point++;
     }
     else {
       for (attempts = 4; attempts > 0; attempts--) {
         if (attempts > 1){
-          console.log(`Your guess was wrong! ${attempts} attempts left.`);
+          alert(`Your guess was wrong! ${attempts} attempts left.`);
           randomValue = Math.floor(Math.random() * (max - min + 1)) + min
           userGuess = parseInt(prompt(`Guess a number between ${min} and ${max}.`));
         } else {
-          console.log(`Your guess was wrong! ${attempts} attempt left.`);
+          alert(`Your guess was wrong! ${attempts} attempt left.`);
           randomValue = Math.floor(Math.random() * (max - min + 1)) + min
           userGuess = parseInt(prompt(`Guess a number between ${min} and ${max}.`));
         }
       }
       if (point > 1 || point === 0){
-        console.log(`Game Over!! You have ${point} points.`);
+        alert(`Game Over!! You have ${point} points.`);
       } else {
-        console.log(`Game Over!! You have ${point} point.`);
+        alert(`Game Over!! You have ${point} point.`);
       }
-      console.log(`Try again.`);
+      alert(`Try again.`);
       break;
     }
   } while (max < 11)
