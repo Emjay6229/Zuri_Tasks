@@ -33,9 +33,14 @@ exports.singleFlight = async (req, res) => {
             const singleFlight = flight.find((singleFlight) => singleFlight.id === id);
             
             res.status(200).json(singleFlight);
+<<<<<<< HEAD
         } catch (err) {
             res.status(404).json({ message: err.message });
         }
+=======
+    } catch (err) {
+        res.status(404).json({ message: err.message });
+>>>>>>> 7b5e12b8b541fef1dbc5730568f082d34ddd4602
     }
 
 // Update Flight
@@ -47,6 +52,7 @@ exports.updateFlight = async (req, res) => {
             bodyUpdate.id = uuidv4();
             flight.splice(flight.indexOf(flightUpdate), 1, bodyUpdate);
 
+<<<<<<< HEAD
             res.status(200).json({ 
                 message: "Flight data updated", 
                 newID: bodyUpdate.id
@@ -55,6 +61,14 @@ exports.updateFlight = async (req, res) => {
             res.status(404).json({ message: err.message });
         }
     } 
+=======
+            res.status(200).json(
+                { message: "Flight data updated", newID: bodyUpdate.id});
+    } catch (err) {
+    res.status(404).json({ message: err.message });
+    }
+} 
+>>>>>>> 7b5e12b8b541fef1dbc5730568f082d34ddd4602
 
 // Delete Flight
 exports.deleteFlight = async (req, res) => {
@@ -64,7 +78,14 @@ exports.deleteFlight = async (req, res) => {
             flight.splice(flight.indexOf(flightDelete), 1);
 
             res.status(200).json({message: "flight cancelled"});
+<<<<<<< HEAD
         } catch (err) {
             res.status(404).json({ message: err.message });
         }
     }    
+=======
+    } catch (err) {
+    res.status(404).json({ message: err.message });
+    }
+} 
+>>>>>>> 7b5e12b8b541fef1dbc5730568f082d34ddd4602

@@ -18,7 +18,7 @@ function guessGame(min, max) {
 
   let randomValue;
   let userGuess;
-  let point = 0;
+  let point = 1;
   let level = 1;
   let attempts = 5;
 
@@ -27,15 +27,15 @@ function guessGame(min, max) {
     userGuess = parseInt(prompt(`Try to guess a number between ${min} and ${max}. You have ${attempts} attempts. `));
 
     if (userGuess === randomValue && point > 1) {
+      console.log(`Your guess is correct! You have ${point} points!`);
       level++;
-      console.log(`Your guess is correct! You have ${point++} points!`);
       console.log(`Welcome to level ${level}.`);
       max++;
       point++;
     }
     else if (userGuess === randomValue && point === 1) {
-      level++;
       console.log(`Your guess is correct! You have ${point} point!`);
+      level++;
       console.log(`Welcome to level ${level}.`);
       max++;
       point++;
