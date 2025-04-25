@@ -2,19 +2,9 @@ guessGame(1, 2);
 
 
 function guessGame(min, max) {
-  let about_game = `GuessIt is a multi-level number guessing game. You are required to guess a randomly generated number. At a correct guess, you are awarded a point and moved to next level.`
-
-  let line_break = `-------------------------------------------------------`
-
-  let userName = (prompt(`Hi! Please enter your username. `));
-
-  console.log(line_break);
-
-  console.log(`Hello ${userName}! Welcome to GuessIt Game!`);
-
-  console.log(line_break);
-  console.log(about_game);
-  console.log(line_break);
+  let userName = (prompt(`Hi! Please enter your username: `));
+  console.log("\n\n");
+  console.log(`Hello ${userName}! Welcome to GuessIt!\n\nInstructions: You are required to guess a randomly generated number. At a correct guess, you are awarded a point and moved to next level.\n\nYou have 5 attempts to guess the number. If you fail to guess the number within the 5 attempts, the game ends. The game ends when you have completed all levels.\n\n`);
 
   let randomValue;
   let userGuess;
@@ -23,28 +13,34 @@ function guessGame(min, max) {
   let attempts = 5;
 
   do {
+    console.log(`Welcome to level ${level}.\n`);
     randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
-    userGuess = parseInt(prompt(`Try to guess a number between ${min} and ${max}. You have ${attempts} attempts. `));
-    
-    point++;
+    console.log(`hint: ${randomValue}`);
+    userGuess = parseInt(prompt(`Correctly guess a number between ${min} and ${max}. You have ${attempts} attempts: `));
+    console.log("");
+    if (userGuess === randomValue && point === 0) {
+      point++;
+      console.log(`Your guess is correct! You have ${point} point!\n`);
+      level++;
+      max++;
 
-    if (userGuess === randomValue && point > 1) {
-      console.log(`Your guess is correct! You have ${point} points!`);
-      level++;
-      console.log(`Welcome to level ${level}.`);
-      max++;
+      if (level > 10) {
+        console.log(`🎉 Congratulations ${userName}! You have completed all levels with ${point} points.`);
+        return;
+      }
+    } else if (userGuess === randomValue) {
       point++;
-    }
-    else if (userGuess === randomValue && point === 1) {
-      console.log(`Your guess is correct! You have ${point} point!`);
+      console.log(`Your guess is correct! You have ${point} points!\n`);
       level++;
-      console.log(`Welcome to level ${level}.`);
       max++;
-      point++;
-    }
-    else {
+
+      if (level > 10) {
+        console.log(`🎉 Congratulations ${userName}! You have completed all levels with ${point} points.`);
+        return;
+      }
+    } else {
       for (attempts = 4; attempts > 0; attempts--) {
-        if (attempts > 1){
+        if (attempts > 1) {
           console.log(`Your guess was wrong! ${attempts} attempts left.`);
           randomValue = Math.floor(Math.random() * (max - min + 1)) + min
           userGuess = parseInt(prompt(`Guess a number between ${min} and ${max}.`));
@@ -54,7 +50,7 @@ function guessGame(min, max) {
           userGuess = parseInt(prompt(`Guess a number between ${min} and ${max}.`));
         }
       }
-      if (point > 1 || point === 0){
+      if (point > 1 || point === 0) {
         console.log(`Game Over!! You have ${point} points.`);
       } else {
         console.log(`Game Over!! You have ${point} point.`);
@@ -62,5 +58,5 @@ function guessGame(min, max) {
       console.log(`Try again.`);
       break;
     }
-  } while (max < 11)
+  } while (max < 12)
 }
